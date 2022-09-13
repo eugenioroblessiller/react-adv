@@ -40,7 +40,7 @@ export const Navigation = () => {
               );
             })}
 
-            <Route path="/*" element={<Navigate to={routes[0].to} />} />
+            <Route path="/shopping" element={<Navigate to={routes[0].to} />} />
           </Routes>
         </div>
       </BrowserRouter>
