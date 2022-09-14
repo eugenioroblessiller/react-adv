@@ -1,11 +1,14 @@
-import React from "react";
+import React from 'react';
 
-import { ProductCard } from "../components/ProductCard";
+import { ProductButtons } from '../components/ProductButtons';
+import { ProductCard } from '../components/ProductCard';
+import { ProductImage } from '../components/ProductImage';
+import { ProductTitle } from '../components/ProductTitle';
 
 const product = {
   id: "1",
   title: "Coffe One",
-  img: './coffee-mug.png'
+  img: "./coffee-mug.png",
 };
 
 export const ShoppingPage = () => {
@@ -13,7 +16,22 @@ export const ShoppingPage = () => {
     <div>
       <h1>Shopping page</h1>
       <div style={{ display: "flex", flexDirection: "row", flexWrap: "wrap" }}>
-        <ProductCard key={product.id} product={product} />
+        {/* <ProductCard product={product}>
+          <ProductCard.Image />
+          <ProductCard.Title title="Cafe" />
+          <ProductCard.Buttons
+            counter={0}
+            handleIncreaseBy={function (value: number): void {
+              throw new Error("Function not implemented.");
+            }}
+          />
+        </ProductCard> */}
+
+        <ProductCard product={product}>
+          <ProductImage />
+          <ProductTitle />
+          <ProductButtons />
+        </ProductCard>
       </div>
     </div>
   );
