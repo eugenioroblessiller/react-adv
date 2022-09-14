@@ -15,3 +15,17 @@ export interface ProductContextProps {
     handleIncreaseBy: (value: number) => void;
     product: Product;
 }
+
+export interface PrductTileProps {
+    title?: string;
+    className?: string
+}
+
+export interface ProductImageProps {
+    img?: string;
+    className?: string;
+}
+
+export interface ProductButtonProps {
+    className?: string
+}
