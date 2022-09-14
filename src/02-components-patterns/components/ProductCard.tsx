@@ -1,12 +1,8 @@
-import { ProductButtons } from './ProductButtons';
-import { ProductTitle } from './ProductTitle';
-import { ProductImage } from './ProductImage';
-import React, { createContext, ReactElement, useContext, useState } from 'react';
+import React, { createContext } from 'react';
 
 import { useProduct } from '../hooks/useProduct';
-import {  ProductContextProps, Props } from '../interfaces/interfaces';
+import { ProductContextProps, Props } from '../interfaces/interfaces';
 import styles from '../styles/styles.module.css';
-
 
 export const ProductContext = createContext({} as ProductContextProps);
 const { Provider } = ProductContext;
@@ -25,7 +21,3 @@ export const ProductCard = ({ children, product }: Props) => {
     </Provider>
   );
 };
-
-ProductCard.Title = ProductTitle;
-ProductCard.Image = ProductImage;
-ProductCard.Buttons = ProductButtons;
