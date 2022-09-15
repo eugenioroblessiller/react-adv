@@ -1,17 +1,26 @@
-import React from "react";
+import '../styles/custom-styles.css';
 
-import { ProductButtons } from "../components/ProductButtons";
-import { ProductCard } from "../components/ProductCard";
-import { ProductImage } from "../components/ProductImage";
-import { ProductTitle } from "../components/ProductTitle";
+import React from 'react';
 
-import "../styles/custom-styles.css";
+import { ProductButtons } from '../components/ProductButtons';
+import { ProductCard } from '../components/ProductCard';
+import { ProductImage } from '../components/ProductImage';
+import { ProductTitle } from '../components/ProductTitle';
+import { Product } from '../interfaces/interfaces';
 
-const product = {
+const product1 = {
   id: "1",
   title: "Coffe One",
   img: "./coffee-mug.png",
 };
+
+const product2 = {
+  id: "2",
+  title: "Coffe Two",
+  img: "./coffee-mug2.png",
+};
+
+const products: Product[] = [product1, product2];
 
 export const ShoppingPage = () => {
   return (
@@ -29,15 +38,23 @@ export const ShoppingPage = () => {
           />
         </ProductCard> */}
 
-        <ProductCard product={product} className="bg-dark text-white">
-          <ProductImage className="custom-image" />
-          <ProductTitle className="text-white" />
-          <ProductButtons className="custom-button" />
+        {products.map((product) => (
+          <ProductCard key={product.id} product={product}>
+            <ProductImage />
+            <ProductTitle />
+            <ProductButtons />
+          </ProductCard>
+        ))}
+      </div>
+
+      <div className="shopping-cart">
+        <ProductCard product={product2} style={{ width: "100px" }}>
+          <ProductImage />
+          <ProductButtons />
         </ProductCard>
 
-        <ProductCard product={product} style={{ backgroundColor: "red" }}>
+        <ProductCard product={product1} style={{ width: "100px" }}>
           <ProductImage />
-          <ProductTitle />
           <ProductButtons />
         </ProductCard>
       </div>
