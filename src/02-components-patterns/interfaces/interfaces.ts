@@ -29,3 +29,8 @@ export interface ProductImageProps {
 export interface ProductButtonProps {
     className?: string
 }
+
+export interface onChangeArgs {
+    product: Product,
+    count: number
+}
