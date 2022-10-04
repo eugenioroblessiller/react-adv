@@ -32,7 +32,7 @@ export const ShoppingPage = () => {
   const onProductCountChange = ({ count, product }: { count: number, product: Product }) => {
     setShoppingCart(oldShoppingCart => {
       if (count === 0) {
-        const { ...rest } = oldShoppingCart
+        const { [product.id]: toDelete, ...rest } = oldShoppingCart
         return rest
       }
       return {
@@ -58,22 +58,17 @@ export const ShoppingPage = () => {
         </ProductCard> */}
 
         {products.map((product) => (
-          <ProductCard key={product.id} product={product} onChange={onProductCountChange}>
+          <ProductCard key={product.id} product={product} value={shoppingCart[product.id]?.count || 0} onChange={onProductCountChange}>
             <ProductImage />
             <ProductTitle />
             <ProductButtons />
           </ProductCard>
         ))}
       </div>
-      <div>
-        <code>
-          {JSON.stringify(shoppingCart, null, 5)}
-        </code>
-      </div>
 
       <div className="shopping-cart">
         {Object.entries(shoppingCart).map(([key, product]) => (
-          <ProductCard key={key} product={product} style={{ width: "100px" }}>
+          <ProductCard key={key} product={product} value={product.count} onChange={onProductCountChange} style={{ width: "100px" }}>
             <ProductImage />
             <ProductButtons />
           </ProductCard>
