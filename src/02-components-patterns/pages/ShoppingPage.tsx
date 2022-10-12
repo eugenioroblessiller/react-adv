@@ -7,7 +7,6 @@ import { ProductCard } from '../components/ProductCard';
 import { ProductImage } from '../components/ProductImage';
 import { ProductTitle } from '../components/ProductTitle';
 import { products } from '../data/products';
-import { Product } from '../interfaces/interfaces';
 
 const product = products[0]
 
